@@ -62,7 +62,7 @@ COPY packages.txt /sdk
 RUN while read -r package; do PACKAGES="${PACKAGES}${package} "; done < /sdk/packages.txt && \
     "${ANDROID_HOME}/tools/bin/sdkmanager" ${PACKAGES}
 
-RUN yes | "${ANDROID_HOME}/tools/bin/sdkmanager" --licenses
+RUN (echo y; echo y; echo y; echo y; echo y; echo y) | "${ANDROID_HOME}/tools/bin/sdkmanager" --licenses
 
 RUN mkdir /utils
 COPY install-google-cloud-sdk.sh /utils
